@@ -6,17 +6,27 @@
         @method('put')
         <div class="form-group">
             <label>NIS</label>
-            <input type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{ $data->nis }}">
+            <input type="number" class="form-control @error('nis') is-invalid @enderror" name="nis"
+                value="{{ $data->nis }}">
         </div>
         <div class="form-group">
             <label>Nama</label>
-            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ $data->nama }}">
+            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
+                value="{{ $data->nama }}">
         </div>
         <div class="form-group">
             <label>Alamat</label>
-            <input type="tet" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ $data->alamat }}">
+            <input type="tet" class="form-control @error('alamat') is-invalid @enderror" name="alamat"
+                value="{{ $data->alamat }}">
         </div>
-
+        <div class="form-group">
+            <label>Sekolah</label>
+            <select class="form-control" name="sekolah_id">
+                @foreach ($sekolah as $item)
+                    <option value="{{ $item->id }}" @selected($data->sekolah_id == $item->id)>{{ $item->nama_sekolah }}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
